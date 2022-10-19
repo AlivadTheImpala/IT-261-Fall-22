@@ -17,7 +17,7 @@ $canadian_converted = $canada * $canadian_rate;
 $euros_converted = $euros * $euros_rate;
 $yen_converted = $yen * $yen_rate;
 
-$total = $ruble_converted + $pound_converted + $canadian_converted + $euro_converted + $yen_converted;
+$total = $rubles_converted + $pound_converted + $canadian_converted + $euros_converted + $yen_converted;
 ?>
 <!DOCTYPE html>
 <html lang="en">
