@@ -54,7 +54,7 @@
         <li><a href="weeks/week2/vars2.php">vars2.php</a></li>
         <li><a href="weeks/week2/currency-logic.php">currency-logic.php</a></li>
         <li><a href="weeks/week2/currency.php">currency.php</a></li>
-        <li><a href="var.php">placeholder</a></li>
+        <li><a href="weeks/week2/heredoc.php">heredoc.php</a></li>
       </ul>
       <h3>Week 3</h3>
       <ul>
@@ -64,6 +64,15 @@
         <li><a href="weeks/week3/for-loop.php">for-loop.php</a></li>
         <li><a href="weeks/week3/if.php">if.php</a></li>
         <li><a href="weeks/week3/switch.php">switch.php</a></li>
+      </ul>
+      <h3>Week 4</h3>
+      <ul>
+        <li><a href="weeks/week4/form-get.php">form-get.php</a></li>
+        <li><a href="weeks/week4/form1.php">form1.php</a></li>
+        <li><a href="weeks/week4/form2.php">form2.php</a></li>
+        <li><a href="weeks/week4/form3.php">form3.php</a></li>
+        <li><a href="weeks/week4/arithmetic-form.php">arithmetic-form.php</a></li>
+        <li><a href="weeks/week4/celcius.php">celcius.php</a></li>
       </ul>
     </aside>
   </div>
