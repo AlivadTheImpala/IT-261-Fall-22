@@ -1,15 +1,3 @@
-<?php     //adder-wrong.php
-
-if (isset($_POST['num1'], $_POST['num2'])) { //added $_POST['num2]
-    $num1 = $_POST['num1'];
-    $num2 = $_POST['num2'];
-    $myTotal = $num1 + $num2; // removed the - sign right before the =. also renamged Num2 to num2.
-    echo '<h2>You added ' . $num1 . ' and ' . $num2 . ''; //added missing single quote and removed the extra double quote.
-    echo '<p style="color:red;"> and the answer is <br>
-     ' . $myTotal . '!</p>';
-    echo '<p><a href="">Reset page</a>'; //added missing semicolon.
-}
-?>
 <html>
 
 <head>
@@ -59,7 +47,33 @@ if (isset($_POST['num1'], $_POST['num2'])) { //added $_POST['num2]
     </form>
 
 
+    <?php     //adder-wrong.php
 
+    if (isset($_POST['num1'], $_POST['num2'])) { //added $_POST['num2]
+
+        //added condition if no input is entered into num1 or num2.
+        if (empty($_POST['num1'] && $_POST['num2'])) {
+            echo '<p>Please enter two numbers to add.</p>';
+        } else {
+
+            $num1 = $_POST['num1'];
+            $num2 = $_POST['num2'];
+            $myTotal = $num1 + $num2; // removed the - sign right before the =. also renamed Num2 to num2.
+
+
+            //removed excess echo tags and placed them inside a single echo statement 
+            echo '
+        
+            <h2>You added ' . $num1 . ' and ' . $num2 . '</h2> 
+       
+            <p style="color:red;"> and the answer is <br> ' . $myTotal . '!</p>
+
+            <p><a href="">Reset page</a></p>
+            ';
+        } //end else
+
+    } //end isset
+    ?>
 
 </body>
 
