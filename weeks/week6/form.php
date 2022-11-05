@@ -22,6 +22,7 @@
             <label>Last Name</label>
             <input type="text" name="last_name">
 
+
             <label>Email</label>
             <input type="email" name="email">
 
