@@ -1,5 +1,15 @@
 <?php
 
+$first_name = '';
+$last_name = '';
+$email = '';
+$gender = '';
+$phone = '';
+$wines = '';
+$regions = '';
+$comments = '';
+$privacy = '';
+
 $first_name_error = '';
 $last_name_error = '';
 $email_error = '';
@@ -9,6 +19,9 @@ $wines_error = '';
 $regions_error = '';
 $comments_error = '';
 $privacy_error = '';
+
+ob_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (empty($_POST['first_name'])) {
@@ -65,6 +78,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $privacy = $_POST['privacy'];
     }
 
+    function my_wines($wines)
+    {
+        $my_return = '';
+
+        if (!empty($_POST['wines'])) {
+            $my_return = implode(', ', $_POST['wines']);
+        } else {
+            $wines_error = 'Please fill out your wines!';
+        }
+        return $my_return;
+    } //end function
+
     if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['gender'], $_POST['phone'], $_POST['wines'], $_POST['regions'], $_POST['comments'], $_POST['privacy'])) {
 
         $to = 'brandon.davila@seattlecolleges.edu';
@@ -76,11 +101,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         Gender: ' . $gender . ' ' . PHP_EOL . '
         Phone: ' . $phone . ' ' . PHP_EOL . '
         Region: ' . $regions . ' ' . PHP_EOL . '
+        Wines: ' . my_wines($wines) . ' ' . PHP_EOL . '
         Comments: ' . $comments . ' ' . PHP_EOL . '
         ';
 
-        mail($to, $subject, $body);
-        header('Location:thx.php');
+        $headers = array(
+            'From' => 'noreply@mystudentswa.com'
+
+
+        );
+
+        if (!empty($first_name && $last_name && $email && $gender && $phone && $regions && $wines && $comments)) {
+
+
+
+            mail($to, $subject, $body, $headers);
+            header('Location:thx.php');
+        }
     }
 } //end server request statement
 ?>
