@@ -49,11 +49,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $gender = $_POST['gender'];
     }
 
-    if (empty($_POST['phone'])) {
-        $phone_error = 'Please enter your Phone Number';
-    } else {
-        $phone = $_POST['phone'];
-    }
+    // if (empty($_POST['phone'])) {
+    //     $phone_error = 'Please enter your Phone Number';
+    // } else {
+    //     $phone = $_POST['phone'];
+    // }
+
+    if (empty($_POST['phone'])) { // if empty, type in your number
+        $phone_error = 'Your phone number please!';
+    } elseif (array_key_exists('phone', $_POST)) {
+        if (!preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])) { // if you are not typing the requested format of xxx-xxx-xxxx, display Invalid format
+            $phone_error = 'Invalid format!';
+        } else {
+            $phone = $_POST['phone'];
+        } // end else
+    } // end main if
 
     if (empty($_POST['wines'])) {
         $wines_error = 'What, no wines?';
@@ -112,7 +122,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         );
 
-        if (!empty($first_name && $last_name && $email && $gender && $phone && $regions && $wines && $comments)) {
+        if (
+            !empty($first_name &&
+                $last_name &&
+                $email &&
+                $gender &&
+                $phone &&
+                $regions &&
+                $wines &&
+                $comments) &&
+            preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])
+        ) {
 
 
 
@@ -131,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../week5/css/styles.css">
-    <title>Form 1 in week 6</title>
+    <title>Form 3 in Week 7</title>
 </head>
 
 <body>
@@ -175,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
             <label>Phone</label>
-            <input type="tel" name="phone" value="<?php if (isset($_POST['phone'])) echo htmlspecialchars($_POST['phone']); ?>">
+            <input type="tel" name="phone" placeholder="xxx-xxx-xxxx" value="<?php if (isset($_POST['phone'])) echo htmlspecialchars($_POST['phone']); ?>">
             <span class="error"> <?php echo $phone_error; ?></span>
             <!-- end phone -->
 

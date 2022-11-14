@@ -56,6 +56,7 @@ list($area, $volume) = area_volume2(5, 15, 25);
 echo '<b>This is my area:</b> ' . $area . ' <br>';
 echo '<b>This is my volume:</b> ' . $volume . ' <br>';
 
+// NAVIGATION FUNCTION
 echo '<h2>Our Navigation</h2>';
 define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
 
