@@ -6,9 +6,9 @@ include('./includes/header.php');
 <div id="wrapper">
     <main>
 
-        <h1>Welcome to our Contact Page</h1>
+        <h1>Wanna Reach Me?</h1>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione distinctio, sapiente recusandae assumenda eaque ad odit, mollitia dolore unde quasi totam rem provident, molestias consectetur?
+            Whether you want a comission or just want to say hi, you can use this form to reach me!
         </p>
 
         <?php

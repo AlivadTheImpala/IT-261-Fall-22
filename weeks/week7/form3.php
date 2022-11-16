@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $phone = $_POST['phone'];
         } // end else
-    } // end main if
+    } // end phone if statement
 
     if (empty($_POST['wines'])) {
         $wines_error = 'What, no wines?';

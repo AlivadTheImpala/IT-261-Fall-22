@@ -1,6 +1,13 @@
 <?php
 include('config.php');
 include('./includes/header.php');
+
+//If statement that declares the color of a page depending on the given day.
+if ($today == 'Sunday') {
+    echo '<body style="background-color: #dab68d">';
+} else {
+    echo '<body style="background-color:orange">';
+}
 ?>
 
 <div id="wrapper">

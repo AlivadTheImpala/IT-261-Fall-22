@@ -51,7 +51,7 @@ function make_links($nav)
         }
     } //end foreach
     return $my_return;
-} //end function
+} //end makelinks function
 
 date_default_timezone_set('America/Los_Angeles');
 
@@ -63,11 +63,7 @@ if (isset($_GET['today'])) {
 // switch ($today) {
 // }
 
-if ($today == 'Sunday') {
-    echo '<body style="background-color: #dab68d">';
-} else {
-    echo '<body style="background-color:azure">';
-}
+
 switch ($today) {
     case 'Saturday':
         $movie = '<h2>The Matrix</h2>';
@@ -122,20 +118,22 @@ $last_name = '';
 $email = '';
 $gender = '';
 $phone = '';
-$wines = '';
+// $wines = '';
 $regions = '';
 $comments = '';
 $privacy = '';
+$drawing = '';
 
 $first_name_error = '';
 $last_name_error = '';
 $email_error = '';
 $gender_error = '';
 $phone_error = '';
-$wines_error = '';
+// $wines_error = '';
 $regions_error = '';
 $comments_error = '';
 $privacy_error = '';
+$drawing_error = '';
 
 
 
@@ -165,16 +163,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $gender = $_POST['gender'];
     }
 
-    if (empty($_POST['phone'])) {
-        $phone_error = 'Please enter your Phone Number';
-    } else {
-        $phone = $_POST['phone'];
-    }
+    if (empty($_POST['phone'])) { // if empty, type in your number
+        $phone_error = 'Your phone number please!';
+    } elseif (array_key_exists('phone', $_POST)) {
+        if (!preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])) { // if you are not typing the requested format of xxx-xxx-xxxx, display Invalid format
+            $phone_error = 'Please enter your number in this format: xxx-xxx-xxxx';
+        } else {
+            $phone = $_POST['phone'];
+        } // end else
+    } // end phone if statement
 
-    if (empty($_POST['wines'])) {
-        $wines_error = 'What, no wines?';
+    if (empty($_POST['drawing'])) {
+        $drawing_error = 'Please pick a medium';
     } else {
-        $wines = $_POST['wines'];
+        $drawing = $_POST['drawing'];
     }
 
     if ($_POST['regions'] == NULL) {
@@ -195,19 +197,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $privacy = $_POST['privacy'];
     }
 
-    function my_wines($wines)
+    // function my_wines($wines)
+    // {
+    //     $my_return = '';
+
+    //     if (!empty($_POST['wines'])) {
+    //         $my_return = implode(', ', $_POST['wines']);
+    //     } else {
+    //         $wines_error = 'Please fill out your wines!';
+    //     }
+    //     return $my_return;
+    // } //end function
+
+    //Function for my contact.php homework
+    function my_drawing($drawing)
     {
         $my_return = '';
 
-        if (!empty($_POST['wines'])) {
-            $my_return = implode(', ', $_POST['wines']);
+        if (!empty($_POST['drawing'])) {
+            $my_return = implode(', ', $_POST['drawing']);
         } else {
-            $wines_error = 'Please fill out your wines!';
+            $drawing_error = 'Please select any applicable drawing mediums!';
         }
         return $my_return;
     } //end function
 
-    if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['gender'], $_POST['phone'], $_POST['wines'], $_POST['regions'], $_POST['comments'], $_POST['privacy'])) {
+    if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['gender'], $_POST['phone'],  $_POST['regions'], $_POST['comments'], $_POST['privacy'], $_POST['drawing'])) {
 
         $to = 'brandon.davila@seattlecolleges.edu';
         $subject = 'Test Email on ' . date('m/d/y, h i A');
@@ -218,22 +233,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         Gender: ' . $gender . ' ' . PHP_EOL . '
         Phone: ' . $phone . ' ' . PHP_EOL . '
         Region: ' . $regions . ' ' . PHP_EOL . '
-        Wines: ' . my_wines($wines) . ' ' . PHP_EOL . '
+        
         Comments: ' . $comments . ' ' . PHP_EOL . '
+        Drawing Medium: ' . my_drawing($drawing) . '' . PHP_EOL . '
         ';
 
         $headers = array(
-            'From' => 'noreply@mystudentswa.com'
+            'From' => $email
 
 
         );
 
-        if (!empty($first_name && $last_name && $email && $gender && $phone && $regions && $wines && $comments)) {
+        if (
+            !empty($first_name && $last_name && $email && $gender && $phone && $regions && $comments && $drawing) &&
+            preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])
+        ) {
 
 
 
             mail($to, $subject, $body, $headers);
-            header('Location:thx.php');
+            header('Location:weeks/week6/thx.php');
         }
-    }
+    } //end function
+
 } //end server request statement
