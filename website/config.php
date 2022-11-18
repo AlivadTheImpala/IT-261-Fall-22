@@ -23,9 +23,13 @@ switch (THIS_PAGE) {
         $title = 'Contact page of our Website Project';
         $body = 'contact inner';
         break;
-    case 'Gallery.php':
+    case 'gallery.php':
         $title = 'Gallery page of our Website Project';
         $body = 'gallery inner';
+        break;
+    case 'thx.php':
+        $title = 'Thanks for reaching out';
+        $body = 'thx inner';
         break;
 }
 // Our navigation Array
@@ -224,7 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['gender'], $_POST['phone'],  $_POST['regions'], $_POST['comments'], $_POST['privacy'], $_POST['drawing'])) {
 
-        $to = 'brandon.davila@seattlecolleges.edu';
+        $to = 'szemeo@mystudentswa.com';
         $subject = 'Test Email on ' . date('m/d/y, h i A');
         $body = '
         First Name: ' . $first_name . ' ' . PHP_EOL . '
@@ -252,7 +256,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
             mail($to, $subject, $body, $headers);
-            header('Location:weeks/week6/thx.php');
+            header('Location:thx.php');
         }
     } //end function
 

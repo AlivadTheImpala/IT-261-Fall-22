@@ -39,7 +39,7 @@ $photos[4] = 'photo5';
 
 $i = rand(0, 4);
 
-$selected_image = ' ' . $photos[$i] . '.jpg ';
+$selected_image = '' . $photos[$i] . '.jpg ';
 echo '<img src="images/' . $selected_image . '" alt="' . $photos[$i] . '">';
 
 echo '<h2>Let\'s create a function</h2>';
