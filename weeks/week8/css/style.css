@@ -1,0 +1,52 @@
+/* styles for people and people_view exercise */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: lightseagreen;
+}
+
+#wrapper {
+    max-width: 1200px;
+    margin: 30px auto;
+
+}
+
+main {
+    float: left;
+    width: 62%;
+}
+
+aside {
+    float: right;
+    width: 35%;
+}
+
+footer {
+    clear: both;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+li p {
+    margin: 50px 0 20px 0;
+}
+
+h1,
+h2 {
+    margin-bottom: 10px;
+}
