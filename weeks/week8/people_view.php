@@ -26,6 +26,7 @@ if (mysqli_num_rows($result) > 0) {
         $email = stripslashes($row['email']);
         $occupation = stripslashes($row['occupation']);
         $blurb = stripslashes($row['blurb']);
+        $birthdate = stripslashes($row['birthdate']);
         $details = stripslashes($row['details']);
         $feedback = '';
     } //close while statement
@@ -43,11 +44,11 @@ include('./includes/header.php');
         <ul>
 
             <?php echo '
-            <li><b>First Name:</b>' . $first_name . '</li>
-            <li><b>Last Name:</b>' . $last_name . '</li>
-            <li><b>Email:</b>' . $email . '</li>
-            <li><b>Occupation:</b>' . $occupation . '</li>
-            <li><b>Birthdate:</b>' . $birthdate . '</li>
+            <li><b>First Name: </b>' . $first_name . '</li>
+            <li><b>Last Name: </b>' . $last_name . '</li>
+            <li><b>Email: </b>' . $email . '</li>
+            <li><b>Occupation: </b>' . $occupation . '</li>
+            <li><b>Birthdate: </b>' . $birthdate . '</li>
             <li>
                 <p>' . $details . '</p>
             </li>
@@ -64,6 +65,17 @@ include('./includes/header.php');
     </main>
     <aside>
         <h3>This is my aside</h3>
+        <figure>
+            <img src="./images/people<?php echo $id; ?>.jpg" alt="<?php echo $first_name; ?>">
+            <figcaption>
+                <?php echo '
+            ' . $first_name . ' ' . $last_name . ', ' . $occupation . '
+            
+            
+            '; ?>
+            </figcaption>
+        </figure>
+        <p><i><?php echo $blurb; ?></i></p>
 
     </aside>
     <?php

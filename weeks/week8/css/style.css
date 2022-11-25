@@ -32,6 +32,17 @@ footer {
     margin: 0 auto;
 }
 
+footer ul {
+    display: flex;
+    justify-content: center;
+}
+
+footer li {
+    margin: 15px;
+}
+
+
+
 p {
     margin-bottom: 20px;
     line-height: 1.4;
