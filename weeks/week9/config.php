@@ -18,21 +18,21 @@ function myError($myFile, $myLine, $errorMsg)
     }
 }
 
-$photos[0] = 'photo1';
-$photos[1] = 'photo2';
-$photos[2] = 'photo3';
-$photos[3] = 'photo4';
+// $photos[0] = 'photo1';
+// $photos[1] = 'photo2';
+// $photos[2] = 'photo3';
+// $photos[3] = 'photo4';
 
 
-$i = rand(0, 3);
+// $i = rand(0, 3);
 
-$selected_image = '' . $photos[$i] . '.jpg ';
+// $selected_image = '' . $photos[$i] . '.jpg ';
 
-function random_images($photos)
-{
-    $my_return = '';
-    $i = rand(0, 3);
-    $selected_image = '' . $photos[$i] . '.jpg';
-    $my_return = '<img  src="images/' . $selected_image . '" alt="' . $photos[$i] . '">';
-    return $my_return;
-}
+// function random_images($photos)
+// {
+//     $my_return = '';
+//     $i = rand(0, 3);
+//     $selected_image = '' . $photos[$i] . '.jpg';
+//     $my_return = '<img  src="images/' . $selected_image . '" alt="' . $photos[$i] . '">';
+//     return $my_return;
+// }
