@@ -64,7 +64,7 @@ function make_links($nav)
 
 
         if (THIS_PAGE == $key) {
-            $my_return .= '<li><a class="current "style="color:red;" href="' . $key . '"> ' . $value . '</a></li>';
+            $my_return .= '<li><a class="current" style="color:red;" href="' . $key . '"> ' . $value . '</a></li>';
         } else {
             $my_return .= '<li><a style="color:green;" href="' . $key . '"> ' . $value . '</a></li>';
         }
