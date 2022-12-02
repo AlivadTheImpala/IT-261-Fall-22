@@ -1,6 +1,21 @@
 <?php
 ob_start();
 define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
+define('DEBUG', 'TRUE');  // We want to see our errors
+
+include('credentials.php');
+
+function myError($myFile, $myLine, $errorMsg)
+{
+    if (defined('DEBUG') && DEBUG) {
+        echo 'Error in file: <b> ' . $myFile . ' </b> on line: <b> ' . $myLine . ' </b>';
+        echo 'Error message: <b> ' . $errorMsg . '</b>';
+        die();
+    } else {
+        echo ' Houston, we have a problem!';
+        die();
+    }
+}
 
 switch (THIS_PAGE) {
     case 'index.php':
@@ -64,10 +79,8 @@ if (isset($_GET['today'])) {
 } else {
     $today = date('l');
 }
-// switch ($today) {
-// }
 
-
+//switch for our daily.php page that displays a different movie depending on the day of the week.
 switch ($today) {
     case 'Saturday':
         $movie = '<h2>The Matrix</h2>';
@@ -111,11 +124,9 @@ switch ($today) {
         $alt = 'Queen of the Damned';
         $content = '<p>Queen of the Damned Follows the legendary vampire Lestat (Stuart Townsend), who has reinvented himself as a rock star in the contemporary American music scene. His music wakes Akasha (Aaliyah), the queen of all vampires, and inspires her desire to make Lestat her king. Akasha\'s malevolent power is so great that all the immortal vampires must stand against her if they want to survive. Meanwhile, a young London woman with a fascination for the dark side (Marguerite Moreau) falls in love with Lestat.</p>';
         break;
-}
+}//end today switch for daily.php 
 
-//my forms php
-
-
+//my contact.php section
 
 $first_name = '';
 $last_name = '';
@@ -201,19 +212,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $privacy = $_POST['privacy'];
     }
 
-    // function my_wines($wines)
-    // {
-    //     $my_return = '';
 
-    //     if (!empty($_POST['wines'])) {
-    //         $my_return = implode(', ', $_POST['wines']);
-    //     } else {
-    //         $wines_error = 'Please fill out your wines!';
-    //     }
-    //     return $my_return;
-    // } //end function
-
-    //Function for my contact.php homework
+    //Function for my contact.php homework which turns the drawing array into string items.
     function my_drawing($drawing)
     {
         $my_return = '';
@@ -226,6 +226,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         return $my_return;
     } //end function
 
+    //if everything is filled out on the contact form than we can go ahead and allow the user to submit and send the email.
     if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['gender'], $_POST['phone'],  $_POST['regions'], $_POST['comments'], $_POST['privacy'], $_POST['drawing'])) {
 
         $to = 'szemeo@mystudentswa.com';
@@ -237,7 +238,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         Gender: ' . $gender . ' ' . PHP_EOL . '
         Phone: ' . $phone . ' ' . PHP_EOL . '
         Region: ' . $regions . ' ' . PHP_EOL . '
-        
         Comments: ' . $comments . ' ' . PHP_EOL . '
         Drawing Medium: ' . my_drawing($drawing) . '' . PHP_EOL . '
         ';
@@ -247,7 +247,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         );
-
+        //this is what checks to make sure that everything is filled out.
         if (
             !empty($first_name && $last_name && $email && $gender && $phone && $regions && $comments && $drawing) &&
             preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])
@@ -261,3 +261,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } //end function
 
 } //end server request statement
+
+
