@@ -130,7 +130,7 @@ if (isset($_POST['login_user'])) {
 
         if (mysqli_num_rows($results) == 1) {
             $_SESSION['username'] = $username;
-            $_SESSION['sucess'] = $success;
+            $_SESSION['success'] = $success;
 
             header('Location:index.php');
         } else {

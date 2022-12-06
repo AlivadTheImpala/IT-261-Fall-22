@@ -1,33 +1,37 @@
 <?php
 // our login page
-include('server.php')
-//include(./includes/header.php);
+include('server.php');
+include('./includes/header.php');
 
 ?>
+<div id="wrapper">
+    <h1 class="center">Login Page</h1>
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
-<h1>Login Page</h1>
-<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <fieldset>
 
-<fieldset>
+            <label>Username</label>
+            <input type="text" name="username" value="<? if (isset($_POST['username'])) echo htmlspecialchars($_POST['username']); ?>">
 
-<label>Username</label>
-<input type="text" name="username" value="<? if(isset($_POST['username'])) echo htmlspecialchars($_POST['username']) ;?>">
+            <label>Password</label>
+            <input type="password" name="password">
 
-<label>Password</label>
-<input type="password" name="password">
+            <button type="submit" class="btn" name="login_user">Login</button>
 
-<button type="submit" class="btn" name="login_user">Login</button>
+            <button type="button" onclick="window.location.href='<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>'">Reset</button>
 
-<button type="button" onclick="window.location.href='<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>'">Reset</button>
-
-
-</fieldset>
-
-
-
+            <?php
+            include('errors.php');
+            ?>
 
 
+        </fieldset>
 
+    </form>
+    <p class="center">Havent Registered? Please visit our <a href="register.php"> Registration Page</a></p>
 
+</div>
+<!-- close wrapper -->
 
-</form>
+<?php
+include('./includes/footer.php');
