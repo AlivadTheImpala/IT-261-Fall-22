@@ -8,5 +8,5 @@
 
 define('DB_HOST', 'mysql.nodnarbalivad.com');
 define('DB_USER', 'sql_project_user');
-define('DB_PASSWORD', '7chbS7@CyzJ');
+define('DB_PASSWORD', ''); //deprecated 
 define('DB_NAME', 'it261_sql_project');
