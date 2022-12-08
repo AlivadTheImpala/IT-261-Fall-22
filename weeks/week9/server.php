@@ -4,8 +4,7 @@
 
 session_start();
 include('config.php');
-//header include will go here.
-//include(./includes/header.php);
+
 
 // this server.php will communicate with our database using iConn
 

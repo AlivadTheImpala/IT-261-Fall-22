@@ -124,7 +124,7 @@ switch ($today) {
         $alt = 'Queen of the Damned';
         $content = '<p>Queen of the Damned Follows the legendary vampire Lestat (Stuart Townsend), who has reinvented himself as a rock star in the contemporary American music scene. His music wakes Akasha (Aaliyah), the queen of all vampires, and inspires her desire to make Lestat her king. Akasha\'s malevolent power is so great that all the immortal vampires must stand against her if they want to survive. Meanwhile, a young London woman with a fascination for the dark side (Marguerite Moreau) falls in love with Lestat.</p>';
         break;
-}//end today switch for daily.php 
+} //end today switch for daily.php 
 
 //my contact.php section
 
@@ -261,5 +261,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } //end function
 
 } //end server request statement
-
-
