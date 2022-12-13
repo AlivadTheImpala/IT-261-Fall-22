@@ -31,4 +31,4 @@ include('./includes/header.php');
 <!-- close wrapper -->
 
 <?php
-include('./includes/footer.php');
+// include('./includes/footer.php');

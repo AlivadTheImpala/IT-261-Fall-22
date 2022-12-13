@@ -35,3 +35,39 @@ video {
     display: block;
     max-width: 100%;
 }
+
+/* end reset styles */
+
+/* Navigation styling */
+nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav {
+    width: 600px;
+    margin-left: auto;
+}
+
+/* end navigation */
+
+.inner-header {
+    padding: 10px 5px;
+}
+
+#hero {
+    height: 400px;
+    background-color: #118686;
+    margin: 30px 30px;
+    border-radius: 5px;
+}
+
+main {
+    height: 600px;
+    background: aliceblue;
+}
+
+#wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}

@@ -1,11 +1,12 @@
 <?php
 ob_start();
-//here, basename looks at the current filename based on the $_SERVER['PHP_SELF'] and assigns it a name of THIS_PAGE. This will be used for our navigation where it matches the $key to the value of THIS_PAGE
+//here, basename() looks at the current filename based on $_SERVER['PHP_SELF'] and assigns it a name of THIS_PAGE. This will be used for our navigation where it matches the $key to the value of THIS_PAGE.
 define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
 define('DEBUG', 'TRUE');  // We want to see our errors
 
 include('credentials.php');
-
+$success = 'You have successfully logged in!';
+$errors = array();
 function myError($myFile, $myLine, $errorMsg)
 {
     if (defined('DEBUG') && DEBUG) {
@@ -18,7 +19,7 @@ function myError($myFile, $myLine, $errorMsg)
     }
 }
 // with this switch, we apply the THIS_PAGE constant from above. 
-//In the case where index.php is the active page, we will assign the $title varialble with Home page, which we can use in the header include to dynamically display it's title. 
+//In the case where index.php is the active page, we will assign the $title variable with Home page, which we can use in the header include to dynamically display it's title. 
 //We can assign a dynamic body class to our body tag, by creating the $body variable and assigning it, home. 
 // the $title and $body variables are assigned to each case, which can then be used where ever we want to echo those variables.
 switch (THIS_PAGE) {

@@ -1,6 +1,6 @@
 <?php
 include('server.php');
-// header include will go here
+
 include('./includes/header.php');
 
 ?>
