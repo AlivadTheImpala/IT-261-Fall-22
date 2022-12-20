@@ -27,6 +27,8 @@ body {
     min-height: 100vh;
 }
 
+
+
 /* responsive images/videos */
 img,
 picture,
@@ -38,15 +40,27 @@ video {
 
 /* end reset styles */
 
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
 /* Navigation styling */
+
+nav {
+    width: 50vw;
+    margin-left: auto;
+}
+
 nav ul {
     display: flex;
     justify-content: space-around;
-}
 
-nav {
-    width: 600px;
-    margin-left: auto;
+
 }
 
 /* end navigation */
@@ -70,4 +84,42 @@ main {
 #wrapper {
     max-width: 1400px;
     margin: 0 auto;
+}
+
+/* form styles */
+form {
+    max-width: 580px;
+    margin: 0 auto 20px auto;
+}
+
+input {
+    display: block;
+    width: 100%;
+}
+
+fieldset {
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+/* end form styles */
+
+/* footer styles */
+footer {
+    width: 100%;
+    background-color: black;
+    padding-top: 30px;
+    margin-top: 40px;
+    padding-bottom: 3px;
+
+}
+
+footer ul {
+    justify-content: space-evenly;
+    display: flex;
 }

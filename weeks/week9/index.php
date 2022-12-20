@@ -23,7 +23,8 @@ include('./includes/header.php');
 
 <header>
 
-    <? if (isset($_SESSION['success'])) : ?>
+    <?
+    if (isset($_SESSION['success'])) : ?>
         <div class="success">
             <h3>
                 <?php echo $_SESSION['success'];
@@ -34,9 +35,9 @@ include('./includes/header.php');
         </div>
         <!-- close success div -->
 
+
+
     <?php endif; ?>
-
-
 
     <?php //is our session username set?
 

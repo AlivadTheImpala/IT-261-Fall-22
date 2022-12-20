@@ -6,11 +6,12 @@ include('./includes/header.php');
 
 <div id="wrapper">
     <h1>Login</h1>
+
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
         <fieldset>
             <label>Username</label>
-            <input type="text" name="username" value="<? if (isset($_POST['username'])) echo htmlspecialchars($_POST['username']); ?>">
+            <input type="text" name="username" value="<?php if (isset($_POST['username'])) echo htmlspecialchars($_POST['username']); ?>">
 
             <label>Password</label>
             <input type="password" name="password">
@@ -25,10 +26,12 @@ include('./includes/header.php');
         </fieldset>
 
     </form>
+    <!-- end form -->
+
     <p class="center">Haven't registered yet? Please visit our <a href="register.php"> Registration Page</a></p>
 
 </div>
 <!-- close wrapper -->
 
 <?php
-// include('./includes/footer.php');
+include('./includes/footer.php');

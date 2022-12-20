@@ -4,7 +4,7 @@ include('./includes/header.php');
 ?>
 
 <div id="wrapper">
-    <h1 class="center">Register Now</h1>
+    <h1>Register Now</h1>
 
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
@@ -38,8 +38,11 @@ include('./includes/header.php');
 
         </fieldset>
     </form>
+    <!-- end form -->
 
     <p class="center">Already have an account? <a href="login.php">Login!</a></p>
+</div>
+<!-- close wrapper -->
 
-    <?php
-    include('./includes/footer.php');
+<?php
+include('./includes/footer.php');
